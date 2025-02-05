@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.R.U.D</title>
+    <style>
+        table {
+            margin-left: 50px;
+            margin-top: 50px;
+            column-width: 20px;
+            font-size: 20px;
+            border: 5px solid black;
+            padding: 5px;
+            
+        }
+ 
+        thead {
+            padding: 10px;
+            background-color: rgb(6, 34, 95);
+            color: white;
+        }
+ 
+        tbody {
+            padding: 10px;
+            background-color: lightgrey;
+        }
+        body{
+            /* background-color:  rgb(180, 231, 227); */
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOlntPB3M-u_0R38QcDWOIkZflHHRmeeypGw&s");
+            background-size: cover;
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            margin: 0;
+            
+        }
+        .custom-button {
+    display: inline-block; /* Make it look like a button */
+    padding: 10px 20px; /* Add padding for size */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border */
+}
+
+.custom-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+    </style>
+
+</head>
+<body>
+    <p style="text-align: center;"><a href="/" class="custom-button">Add New Employee</a></p>
+   
+    <hr>
+    <div>
+    <h1 style="text-align: center;color: rgb(7, 2, 48);">Employee Data</h1>
+    </div>
+    <div class="container">
+        <table  border="5px solid #000;">
+           
+            <tbody>
+ 
+                <thead>
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Emp Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Role</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Date of Joining</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+ 
+                </thead>
+            <tbody>
+                {% for i in details %}
+                <tr>
+                    <td style="padding:10px;">{{i.sr_no}}</td>
+                    <td style="padding:10px;">{{i.emp_id}}</td>
+                    <td style="padding:10px;">{{i.firstname}}</td>
+                    <td style="padding:10px;">{{i.lastname}}</td>
+                    <td style="padding:10px;">{{i.age}}</td>
+                    <td style="padding:10px;">{{i.address}}</td>
+                    <td style="padding:10px;">{{i.department}}</td>
+                    <td style="padding:10px;">{{i.role}}</td>
+                    <td style="padding:10px;">{{i.salary}}</td>
+                    <td style="padding:10px;">{{i.phone}}</td>
+                    <td style="padding:10px;">{{i.email}}</td>
+                    <td style="padding:10px;">{{i.date}}</td>
+                    <td style="padding:10px;"><a href="/edit/{{i.sr_no}}">Edit</a></td>
+                    <td style="padding:10px;"><a href="/delete/{{ i.sr_no }}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </tbody>
+        </table>
+    </div>
+
+    
+</body>
+</html>
